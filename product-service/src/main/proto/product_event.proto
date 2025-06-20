@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package product;
+
+option java_package = "com.example.product.protobuf";
+option java_outer_classname = "ProductEventProto";
+
+message ProductEvent {
+  enum EventType {
+    PRODUCT_CREATED = 0;
+    PRODUCT_UPDATED = 1;
+    PRODUCT_DELETED = 2;
+  }
+
+  EventType event_type = 1;
+  Product product = 2;
+}
+
+message Product {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  int32 stock = 5;
+} 
